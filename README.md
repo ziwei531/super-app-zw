@@ -28,13 +28,8 @@ npm run lint     # run ESLint
 
 ## Workflow
 
-Single base branch (`stable`), no `develop`. Flat branch naming — no slashes.
-
-| Type    | Pattern              | Branches from  | Merges into         |
-|---------|----------------------|----------------|---------------------|
-| Feature | `feature-{name}`     | `stable`       | `release-{version}` |
-| Release | `release-{version}`  | latest tag     | `stable`            |
-| Hotfix  | `hotfix-{version}`   | latest tag     | `stable`            |
-
-All operations are done via the `gf` helper (see [gf.ps1](E:\Projects\simple-twgit\gf.ps1)).
+- `stable` is the main branch
+- features branch as `feature-{name}`, merged into a release branch when ready
+- releases and hotfixes branch off the latest tag, merged back to `stable`
+- all branches are flat — no slashes
 
