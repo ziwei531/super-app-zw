@@ -14,4 +14,17 @@ function Component() {
 
 This prevents style leakage between components — Vite hashes class names at build time. Keep `index.css` for global resets and CSS custom properties only. Never use plain `.css` files for component styles.
 
-Apply this only when the array has 3+ items and the alignment meaningfully improves readability (tabular data, config maps). Do not align ad-hoc objects outside config/data files.
+## Variables & Naming
+
+Use `camelCase` for regular variables, including module-level constants that aren't truly immutable configuration:
+
+```js
+// ✅ camelCase
+const baseUrl = "https://api.example.com"
+const maxRetries = 3
+
+// ❌ SCREAMING_SNAKE_CASE — reserve for environment-level constants only
+const BASE_URL = "https://api.example.com"
+```
+
+Reserve `SCREAMING_SNAKE_CASE` for environment variables and truly global, build-time constants (e.g. `API_KEY`, `MAX_FILE_SIZE`).

@@ -1,0 +1,18 @@
+.page {
+  flex: 1;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 6rem 2rem;
+  text-align: center;
+}
+
+.heading {
+  font-size: clamp(1.5rem, 4vw, 3rem);
+  margin: 0;
+}
+
+.text {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  color: var(--color-text-secondary);
+}

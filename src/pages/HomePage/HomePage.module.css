@@ -1,0 +1,94 @@
+.hero {
+  flex: 1;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 6rem 2rem;
+  text-align: center;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 1.15;
+  margin: 0;
+}
+
+.titleLine {
+  opacity: 0;
+  animation: heroFadeUp 0.7s ease-out forwards;
+}
+
+.titleLine:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.titleBrand {
+  background: linear-gradient(
+    135deg,
+    #6366f1 0%,
+    #a855f7 25%,
+    #ec4899 50%,
+    #f97316 75%,
+    #6366f1 100%
+  );
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation:
+    heroFadeUp 0.7s ease-out 0.15s forwards,
+    heroGradient 6s ease-in-out infinite;
+}
+
+.quote {
+  opacity: 0;
+  margin-top: 2rem;
+  animation: heroFadeUp 0.7s ease-out 0.35s forwards;
+}
+
+.quoteText {
+  margin: 0;
+  font-size: 1.2rem;
+  font-style: italic;
+  color: var(--color-text-light);
+  line-height: 1.6;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.quoteAuthor {
+  margin: 0.75rem 0 0;
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+}
+
+.quoteLoading {
+  margin: 0;
+  font-size: 1.1rem;
+  color: var(--color-text-dimmed);
+  font-style: italic;
+}
+
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroGradient {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
