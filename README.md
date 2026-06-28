@@ -26,79 +26,47 @@ npm run preview  # preview production build locally
 npm run lint     # run ESLint
 ```
 
-## Git Flow
+## Docker
 
-> **Note:** This repo was initialized with `stable` as the production branch (not `main`). Git-flow was configured accordingly during `git flow init`. The commands below reflect this setup.
+### Production
 
-### Feature Branches
-
-All new features are developed in feature branches off `develop` and merged back when complete.
-
-### Start a feature
+Build the image:
 
 ```bash
-git flow feature start <name>   # e.g. git flow feature start add-login
+docker build -t super-app-zw .
 ```
 
-This creates `feature/<name>` branched from `develop` and switches to it.
-
-### Finish a feature
+Run the container:
 
 ```bash
-git flow feature finish <name>
+docker run -p 8080:80 super-app-zw
 ```
 
-This automatically:
-- Merges `feature/<name>` → `develop`
-- Deletes the feature branch
-- Switches back to `develop`
-
-### Collaborate on a feature
+Or use Docker Compose:
 
 ```bash
-git flow feature publish <name>   # push to remote for others to use
-git flow feature track <name>     # track a remote feature branch
-git flow feature pull origin <name>  # pull a feature from origin
+docker compose up -d
 ```
 
-## Git Flow Release Process
+The app will be available at **http://localhost:8080**.
 
-> **⚠️ Only start a release branch when `develop` is mature and feature-complete.**
-> Once you cut a release, no new features should go into `develop` for that cycle — only bug fixes go into the release branch.
+### Development (with hot reload)
 
-1. **Ensure `develop` is mature** — all planned features merged, app builds and passes tests.
+```bash
+docker compose -f docker-compose.dev.yml up -d
+```
 
-2. **Start the release:**
+Source files are mounted as a volume, so changes reflect instantly with Vite HMR. Available at **http://localhost:5173**.
 
-   ```bash
-   git flow release start <version>   # e.g. 1.0.0
-   ```
+> If the dev container fails to start, rebuild the image with `--build`:
+> ```bash
+> docker compose -f docker-compose.dev.yml up -d --build
+> ```
 
-   This creates `release/<version>` from `develop`.
+## Workflow
 
-3. **Polish the release** — bug fixes, version bumps, docs only. No new features.
+- `stable` is the main branch
+- features branch as `feature-{name}`, merged into a release branch when ready
+- releases and hotfixes branch off the latest tag, merged back to `stable`
+- all branches are flat — no slashes
 
-4. **Finish the release:**
-
-   > **Note:** `git flow release finish` only operates locally — it does _not_ push by default.
-
-   **Option A — finish and push in one step (recommended):**
-
-   ```bash
-   git flow release finish -p <version>
-   ```
-
-   The `-p` flag pushes `stable`, `develop`, and tags to `origin` automatically.
-
-   **Option B — finish locally, then push manually:**
-
-   ```bash
-   git flow release finish <version>
-   git push origin stable develop --tags
-   ```
-
-   Either way, `finish` automatically:
-   - Merges `release/<version>` → `stable`
-   - Tags `stable` with the version
-   - Merges `release/<version>` → `develop`
-   - Deletes the local release branch
