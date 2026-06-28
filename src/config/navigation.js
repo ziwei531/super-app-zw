@@ -1,9 +1,14 @@
 import HomePage from "../pages/HomePage/HomePage"
 import TestPage from "../pages/TestPage/TestPage"
+import DevUtilsPage from "../pages/DevUtilsPage/DevUtilsPage"
+import GitFlowHelperPage from "../pages/DevUtilsPage/GitFlowHelperPage/GitFlowHelperPage"
+import { resolveNavigation } from "../services/navigation"
 
-const navigation = [
-  { label: "Home", href: "/", component: HomePage },
-  { label: "Test Page", href: "/test", component: TestPage },
+const raw = [
+  { label: "Home"           , component: HomePage                               },
+  { label: "Test Page"      , component: TestPage         , hide: true          },
+  { label: "Dev Utils"      , component: DevUtilsPage     , subnav: true        },
+  { label: "Git Flow Helper", component: GitFlowHelperPage, parent: "Dev Utils" },
 ]
 
-export default navigation
+export default resolveNavigation(raw)

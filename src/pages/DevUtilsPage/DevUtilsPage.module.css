@@ -1,0 +1,45 @@
+.page {
+  flex: 1;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 6rem 2rem;
+  text-align: center;
+}
+
+.heading {
+  font-size: clamp(1.5rem, 4vw, 3rem);
+  margin: 0;
+}
+
+.text {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  color: var(--color-text-secondary);
+}
+
+.childList {
+  list-style: none;
+  padding: 0;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.childLink {
+  display: inline-block;
+  padding: 0.75rem 1.25rem;
+  border: 1px solid var(--color-border, #e0e0e0);
+  border-radius: 8px;
+  color: var(--color-text-heading);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.childLink:hover {
+  background: var(--color-surface, #f8f9fa);
+  border-color: var(--color-primary, #4f8ef7);
+  color: var(--color-primary, #4f8ef7);
+}

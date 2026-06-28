@@ -1,0 +1,119 @@
+.page {
+  flex: 1;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 4rem 2rem 6rem;
+  text-align: left;
+}
+
+.heading {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  margin: 0;
+}
+
+.subtitle {
+  margin-top: 0.75rem;
+  font-size: 1.1rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+.repoLink {
+  margin-top: 0.5rem;
+}
+
+.repoLink a {
+  color: var(--color-primary, #4f8ef7);
+  font-weight: 500;
+}
+
+/* Sections */
+.section {
+  margin-top: 3rem;
+}
+
+.section h2 {
+  font-size: 1.5rem;
+  margin: 0 0 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--color-border, #e0e0e0);
+}
+
+.section h3 {
+  font-size: 1.15rem;
+  margin: 1.25rem 0 0.5rem;
+}
+
+.section h4 {
+  font-size: 1rem;
+  margin: 1rem 0 0.4rem;
+  color: var(--color-text-secondary);
+}
+
+/* Cards */
+.card {
+  background: var(--color-surface, #f8f9fa);
+  border: 1px solid var(--color-border, #e0e0e0);
+  border-radius: 8px;
+  padding: 1.25rem 1.5rem;
+  margin-top: 1rem;
+}
+
+.card h3:first-child {
+  margin-top: 0;
+}
+
+/* Code blocks */
+.code,
+.codeBlock {
+  background: var(--color-code-bg, #1e1e1e);
+  color: var(--color-code-text, #d4d4d4);
+  padding: 1rem 1.25rem;
+  border-radius: 6px;
+  font-family: "Cascadia Code", "Fira Code", Consolas, monospace;
+  font-size: 0.875rem;
+  line-height: 1.55;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  margin: 0.75rem 0;
+}
+
+/* Tables */
+.tableWrapper {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.75rem 0;
+  font-size: 0.925rem;
+}
+
+.table th,
+.table td {
+  border: 1px solid var(--color-border, #e0e0e0);
+  padding: 0.6rem 0.85rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.table th {
+  background: var(--color-surface, #f8f9fa);
+  font-weight: 600;
+}
+
+.table code {
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+/* Lists */
+.list {
+  padding-left: 1.25rem;
+  line-height: 1.7;
+}
+
+.list li {
+  margin-top: 0.35rem;
+}
