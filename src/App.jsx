@@ -10,9 +10,11 @@ function App() {
       <div className={styles.app}>
         <Header />
         <Routes>
-          {navigation.map(({ href, component: Page }) => (
-            <Route key={href} path={href} element={<Page />} />
-          ))}
+          {navigation
+            .filter((item) => !item.hide)
+            .map(({ href, component: Page }) => (
+              <Route key={href} path={href} element={<Page />} />
+            ))}
         </Routes>
         <Footer />
       </div>

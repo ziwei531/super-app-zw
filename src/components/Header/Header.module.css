@@ -72,6 +72,105 @@
   color: var(--color-text-heading);
 }
 
+/* ---- Sub-navigation ---- */
+.hasSubnav {
+  position: relative;
+}
+
+.subnavLabel {
+  color: var(--color-text-soft);
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  cursor: pointer;
+}
+
+.hasSubnav:hover .subnavLabel {
+  color: var(--color-text-heading);
+}
+
+.subnavList {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 180px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  padding: 0.5rem 0;
+  list-style: none;
+  margin: 0;
+  z-index: 200;
+}
+
+.hasSubnav:hover > .subnavList {
+  display: block;
+}
+
+/* Prevent overflow — flip subnav to the right edge if near viewport edge */
+.navList > .hasSubnav > .subnavList {
+  right: 0;
+  left: auto;
+}
+
+.subnavList .navItem {
+  padding: 0;
+}
+
+.subnavList .navLink,
+.subnavList .subnavLabel {
+  display: block;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.subnavList .navLink:hover,
+.subnavList .subnavLabel:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Nested subnav (second level) */
+.subnavList .subnavList {
+  position: absolute;
+  top: 0;
+  left: 100%;
+}
+
+.subnavList .hasSubnav {
+  position: relative;
+}
+
+/* Mobile: subnavs always visible inline */
+@media (max-width: 767px) {
+  .subnavList {
+    display: block;
+    position: static;
+    border: none;
+    background: none;
+    padding: 0.5rem 0 0.5rem 1.5rem;
+    min-width: 0;
+  }
+
+  .subnavList .subnavList {
+    position: static;
+    left: auto;
+    padding-left: 1.5rem;
+  }
+
+  .subnavLabel {
+    font-size: 1.15rem;
+  }
+
+  .subnavList .navLink,
+  .subnavList .subnavLabel {
+    font-size: 1.05rem;
+  }
+}
+
 /* Mobile styles */
 @media (max-width: 767px) {
   .hamburger {
